@@ -28,7 +28,7 @@ public class BottleExercise {
     }
 
     boolean pour (double amount) {
-        if (this.waterAmount >= amount)
+        if (amount <= howMuchWaterToFullBottle())
         this.waterAmount -= amount;
         else return false;
         return true;
