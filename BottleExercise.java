@@ -28,14 +28,14 @@ public class BottleExercise {
     }
 
     boolean pour (double amount) {
-        if (amount <= howMuchWaterToFullBottle())
+        if (this.waterAmount >= amount)
         this.waterAmount -= amount;
         else return false;
         return true;
     }
 
     void transferWater(double amount, BottleExercise transferToBottle) {
-        if (howMuchWaterToFullBottle() >= amount) {
+        if (amount <= howMuchWaterToFullBottle()) {
         this.pour(amount);
         transferToBottle.fill(amount); }
         else System.out.println("Not enough water or insufficient capacity");
