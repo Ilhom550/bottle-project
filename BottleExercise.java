@@ -15,6 +15,11 @@ public class BottleExercise {
         this.capacity = capacity;
     }
 
+    double howMuchWaterToFullBottle() {
+        double howMuchWater = this.capacity - this.waterAmount;
+        return howMuchWater;
+    }
+
     boolean fill (double amount) {
         if (this.capacity >= amount)
         this.waterAmount += amount;
@@ -30,8 +35,9 @@ public class BottleExercise {
     }
 
     void transferWater(double amount, BottleExercise transferToBottle) {
-        if (this.pour(amount))
-        transferToBottle.fill(amount);
+        if (howMuchWaterToFullBottle() >= amount) {
+        this.pour(amount);
+        transferToBottle.fill(amount); }
         else System.out.println("Not enough water or insufficient capacity");
     }
 
